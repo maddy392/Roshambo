@@ -28,7 +28,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="" image="rock"/>
                                         <connections>
-                                            <action selector="playRoshambo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NUC-5w-kYU"/>
+                                            <action selector="playRock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W0r-L2-hsB"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0d6-V5-Kl9" userLabel="Paper Button">
@@ -36,7 +36,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="paper"/>
                                         <connections>
-                                            <action selector="playRoshambo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cad-fr-ZcM"/>
+                                            <action selector="playPaper" destination="BYZ-38-t0r" eventType="touchUpInside" id="cMh-DR-wDp"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPd-wV-vqM" userLabel="Scissors Button">
@@ -44,7 +44,8 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="scissors"/>
                                         <connections>
-                                            <action selector="playRoshambo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lLw-6d-uem"/>
+                                            <action selector="playScissor" destination="BYZ-38-t0r" eventType="touchUpInside" id="zL7-U4-dAb"/>
+                                            <segue destination="wgV-Zg-mM8" kind="presentation" identifier="playScissorSegue" id="bm6-QF-4e0"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -73,6 +74,9 @@
                             <constraint firstItem="1Vd-Wf-YQH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="z3a-k2-Dv6"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="wgV-Zg-mM8" kind="presentation" identifier="playPaperSegue" id="X90-RT-C01"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -83,21 +87,23 @@
             <objects>
                 <viewController storyboardIdentifier="ResultsViewController" id="wgV-Zg-mM8" customClass="ResultsViewController" customModule="Roshambo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Sm-2J-ZG8">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sTl-AK-D7p">
-                                <rect key="frame" x="15" y="84" width="363" height="709"/>
+                                <rect key="frame" x="15" y="25" width="363" height="792"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CgG-ZL-jMW" userLabel="Results Image">
-                                        <rect key="frame" x="0.0" y="0.0" width="363" height="359"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="363" height="250"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="KiG-cU-Zn8"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Wmx-X6-0Ci"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="KiG-cU-Zn8"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="250" id="Ssx-4P-heU"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="Wmx-X6-0Ci"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="250" id="aeo-sv-eWD"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kk1-nz-hTw" userLabel="Result Label">
-                                        <rect key="frame" x="0.0" y="359" width="363" height="250"/>
+                                        <rect key="frame" x="0.0" y="250" width="363" height="442"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="ldV-iI-kxC"/>
                                         </constraints>
@@ -106,7 +112,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UoY-c9-sFl">
-                                        <rect key="frame" x="0.0" y="609" width="363" height="100"/>
+                                        <rect key="frame" x="0.0" y="692" width="363" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="400" id="e0g-MO-O5b"/>
                                             <constraint firstAttribute="height" constant="100" id="qNa-gq-4vz"/>
@@ -138,6 +144,7 @@
                     <connections>
                         <outlet property="ResultImage" destination="CgG-ZL-jMW" id="mvc-6j-G6J"/>
                         <outlet property="outcomeMessage" destination="kk1-nz-hTw" id="hWI-cZ-Hlq"/>
+                        <outlet property="resultImage" destination="CgG-ZL-jMW" id="Qlx-yZ-AR1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GbR-N0-6xk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -145,6 +152,9 @@
             <point key="canvasLocation" x="-347" y="50"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="bm6-QF-4e0"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="paper" width="75" height="65"/>
         <image name="rock" width="75" height="65"/>
