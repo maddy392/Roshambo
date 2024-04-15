@@ -26,7 +26,9 @@
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="frv-ef-ZKW"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="" image="rock"/>
+                                        <state key="normal" title="rock" image="rock">
+                                            <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="playRock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W0r-L2-hsB"/>
                                         </connections>
